@@ -1,0 +1,173 @@
+body {
+  font-family: "Roboto", serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+header h1 {
+  text-align: center;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-images {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.product-images img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-details {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.product-details h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 24px;
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.description {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.product-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-options label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.product-options select,
+.product-options input {
+  margin-top: 5px;
+}
+
+.add-to-cart {
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  padding: 16px 50px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+  border-radius: 6px;
+}
+
+.add-to-cart:hover {
+  background-color: #219150;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+.carousel {
+  position: relative;
+  width: 600px;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+button {
+
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.input {
+  padding: 16px 16px;
+  border-radius: 6px;
+  border: 1px solid rgb(83, 81, 81);
+}
