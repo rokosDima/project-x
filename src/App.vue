@@ -1,5 +1,9 @@
 <script setup>
+import Button from "@/share/ui/Button.vue";
 
+function submit(e) {
+  console.log(111, e)
+}
 </script>
 
 <template>
@@ -54,7 +58,12 @@
           <label for="phone"> Телефон:</label>
           <input class="input" type="tel" id="phone" name="phone" style="margin-bottom: 16px;">
 
-          <button type="submit" class="add-to-cart">Надіслати замовлення</button>
+          <Button
+              rounded="lg"
+              size="x-large"
+              color="success"
+              @click="submit($event)"
+          > Надіслати замовлення </Button>
         </form>
       </div>
     </div>
