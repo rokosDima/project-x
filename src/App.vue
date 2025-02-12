@@ -1,9 +1,12 @@
 <script setup>
-import Button from "@/share/ui/Button.vue";
+import Form from "@/components/Form.vue";
+import {ref} from "vue";
 
 function submit(e) {
   console.log(111, e)
 }
+
+const username = ref()
 </script>
 
 <template>
@@ -43,30 +46,13 @@ function submit(e) {
             <li>Гарантія 12 місяців</li>
           </ul>
         </p>
-        <form class="product-options">
-          <label  for="color">Оплата:</label>
-          <select  class="input" id="color" name="color">
-            <option value="black">На карту</option>
-            <option value="cream">Накладний платіж</option>
-          </select>
-          <label for="quantity">Кількість:</label>
-          <input class="input" type="number" id="quantity" name="quantity" value="1" min="1">
 
-          <label for="name">Ім'я:</label>
-          <input class="input" type="text" id="name" name="name">
+        <Form/>
 
-          <label for="phone"> Телефон:</label>
-          <input class="input" type="tel" id="phone" name="phone" style="margin-bottom: 16px;">
-
-          <Button
-              rounded="lg"
-              size="x-large"
-              color="success"
-              @click="submit($event)"
-          > Надіслати замовлення </Button>
-        </form>
       </div>
     </div>
+
+
   </main>
   <footer>
     <p>&copy; 2025 Avtomix. Всі права захищені.</p>
