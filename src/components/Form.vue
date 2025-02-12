@@ -21,7 +21,7 @@ const { handleSubmit, handleReset } = useForm({
     },
 
     amount (value) {
-      if(!value) return true
+      if(value > 0) return true
 
       return 'Мінімум 1'
     },

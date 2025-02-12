@@ -10,12 +10,27 @@ const items = [
   { src: img3 },
   { src: img4 },
 ];
+
+const testIcon = [
+  {
+    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+  },
+  {
+    src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+  },
+  {
+    src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+  },
+  {
+    src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+  },
+]
 </script>
 
 <template>
   <v-carousel hide-delimiters>
     <v-carousel-item
-        v-for="(item,i) in items"
+        v-for="(item,i) in testIcon"
         :key="i"
         :src="item.src"
         cover
