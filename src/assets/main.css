@@ -1,5 +1,5 @@
 body {
-  font-family: "Roboto", serif;
+  font-family: "Atkinson Hyperlegible Next", serif;
   margin: 0;
   padding: 0;
   /*background-color: #f5f5f5;*/
@@ -63,19 +63,6 @@ nav a {
 .product-details h2 {
   font-size: 28px;
   margin-bottom: 10px;
-}
-
-.price {
-  font-size: 24px;
-  color: #e74c3c;
-  margin-bottom: 10px;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #999;
-  font-size: 18px;
-  margin-left: 10px;
 }
 
 .description {
@@ -169,4 +156,10 @@ button:hover {
   padding: 16px 16px;
   border-radius: 6px;
   border: 1px solid rgb(83, 81, 81);
+}
+
+@media (max-width: 1023px) {
+  .product-container {
+    flex-direction: column;
+  }
 }

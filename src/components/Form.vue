@@ -98,7 +98,4 @@ const submit = handleSubmit(values => {
 </template>
 
 <style scoped>
-form {
-  padding: 16px;
-}
 </style>
