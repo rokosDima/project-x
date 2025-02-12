@@ -2,6 +2,10 @@
 import Form from "@/components/Form.vue";
 import {ref} from "vue";
 import Description from "@/components/Description.vue";
+import Footer from "@/components/Footer.vue";
+import Header from "@/components/Header.vue";
+import Carousel from "@/components/Carousel.vue";
+import Guarantee from "@/components/Guarantee.vue";
 
 function submit(e) {
   console.log(111, e)
@@ -11,45 +15,49 @@ const username = ref()
 </script>
 
 <template>
-  <header>
-    <h1>Avtomix shop</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Головна</a></li>
-        <li><a href="#">Магазин</a></li>
-        <li><a href="#">Про нас</a></li>
-        <li><a href="#">Відгуки</a></li>
-        <li><a href="#">Контакти</a></li>
-      </ul>
-    </nav>
-  </header>
+<!--  <header>-->
+<!--    <h1>Avtomix shop</h1>-->
+<!--    <nav>-->
+<!--      <ul>-->
+<!--        <li><a href="#">Головна</a></li>-->
+<!--        <li><a href="#">Магазин</a></li>-->
+<!--        <li><a href="#">Про нас</a></li>-->
+<!--        <li><a href="#">Відгуки</a></li>-->
+<!--        <li><a href="#">Контакти</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+<!--  </header>-->
+
+  <Header/>
+
+
   <main>
     <div class="product-container">
-      <div class="carousel">
-        <div class="carousel-container">
-          <img src="@/assets/img/105_1000.png" class="carousel-item active">
-          <img src="@/assets/img/mpu-105....jpg" class="carousel-item">
-          <img src="@/assets/img/mpu-105...jpg" class="carousel-item">
-          <img src="@/assets/img/mpu-105.jpg" class="carousel-item">
-        </div>
-        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-      </div>
-      <div class="product-details">
+      <v-col cols="12" md="6">
+        <Carousel/>
+
+        <Guarantee/>
+
+      </v-col>
+      <v-col cols="12" md="6">
+        <div class="product-details">
         <Description />
 
         <Form/>
 
       </div>
+      </v-col>
     </div>
 
 
   </main>
-  <footer>
-    <p>&copy; 2025 Avtomix. Всі права захищені.</p>
-  </footer>
+  <Footer/>
 </template>
 
 <style scoped>
-
+@media (max-width: 959px) {
+  .product-container {
+    flex-direction: column;
+  }
+}
 </style>

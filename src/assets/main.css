@@ -35,8 +35,7 @@ nav a {
 
 .product-container {
   display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 20px auto;
   padding: 20px;
   /*background-color: #fff;*/
@@ -158,8 +157,16 @@ button:hover {
   border: 1px solid rgb(83, 81, 81);
 }
 
-@media (max-width: 1023px) {
+.v-window__controls {
+  align-items: baseline !important;
+}
+
+@media (max-width: 959px) {
   .product-container {
     flex-direction: column;
+  }
+
+  .product-details {
+    padding: 20px 0;
   }
 }

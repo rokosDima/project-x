@@ -7,22 +7,28 @@ const { handleSubmit, handleReset } = useForm({
     name (value) {
       if (value?.length >= 2) return true
 
-      return 'Name needs to be at least 2 characters.'
+      return 'Повинно бути більше 2 символа'
     },
     phone (value) {
       if (/^[0-9-]{7,}$/.test(value)) return true
 
-      return 'Phone number needs to be at least 7 digits.'
+      return 'Номер телефону має бути не менше 7 цифр.'
     },
     email (value) {
       if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
 
-      return 'Must be a valid e-mail.'
+      return 'Має бути дійсна електронна адреса.'
+    },
+
+    amount (value) {
+      if(!value) return true
+
+      return 'Мінімум 1'
     },
     select (value) {
       if (value) return true
 
-      return 'Select an item.'
+      return 'Виберіть елемент.'
     },
     // checkbox (value) {
     //   if (value === '1') return true
@@ -34,6 +40,7 @@ const { handleSubmit, handleReset } = useForm({
 const name = useField('name')
 const phone = useField('phone')
 const email = useField('email')
+const amount = useField('amount')
 const select = useField('select')
 const checkbox = useField('checkbox')
 
@@ -50,6 +57,7 @@ const submit = handleSubmit(values => {
 <template>
   <form @submit.prevent="submit">
     <v-text-field
+        class="mt-2"
         v-model="name.value.value"
         :counter="10"
         :error-messages="name.errorMessage.value"
@@ -57,6 +65,7 @@ const submit = handleSubmit(values => {
     ></v-text-field>
 
     <v-text-field
+        class="mt-2"
         v-model="phone.value.value"
         :counter="7"
         :error-messages="phone.errorMessage.value"
@@ -64,12 +73,21 @@ const submit = handleSubmit(values => {
     ></v-text-field>
 
     <v-text-field
+        class="mt-2"
         v-model="email.value.value"
         :error-messages="email.errorMessage.value"
         label="E-mail"
     ></v-text-field>
 
+    <v-text-field
+        class="mt-2"
+        v-model="amount.value.value"
+        :error-messages="amount.errorMessage.value"
+        label="Кількість"
+    ></v-text-field>
+
     <v-select
+        class="mt-2"
         v-model="select.value.value"
         :error-messages="select.errorMessage.value"
         :items="paymentMethods"
@@ -85,17 +103,25 @@ const submit = handleSubmit(values => {
     ></v-checkbox>
 
     <v-btn
-        class="me-4"
+        class="me-4 mt-3 sub-btn"
         type="submit"
+        variant="flat" size="x-large" block
     >
       Відправити
     </v-btn>
 
-    <v-btn @click="handleReset">
-      Очистити
-    </v-btn>
+<!--    <v-btn @click="handleReset">-->
+<!--      Очистити-->
+<!--    </v-btn>-->
   </form>
 </template>
 
 <style scoped>
+
+
+@media (max-width: 959px) {
+  .sub-btn {
+    width: 100%;
+  }
+}
 </style>
