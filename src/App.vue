@@ -6,6 +6,15 @@ import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
 import Carousel from "@/components/Carousel.vue";
 import Guarantee from "@/components/Guarantee.vue";
+import Reviews from "@/components/Reviews.vue";
+
+import ProductList from "@/components/ProductList.vue";
+//
+
+function handleAddToCart() {
+  console.log("AddToCart");
+}
+
 
 function submit(e) {
   console.log(111, e)
@@ -51,6 +60,14 @@ const username = ref()
 
 
   </main>
+  <reviews/>
+
+  <ProductList/>
+
+
+
+
+
   <Footer/>
 </template>
 
@@ -60,4 +77,9 @@ const username = ref()
     flex-direction: column;
   }
 }
+  .productList {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 </style>

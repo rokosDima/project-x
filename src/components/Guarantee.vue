@@ -20,8 +20,21 @@ import ShipIcon from '@/icons/ship.svg'
         <img :src="RestoreIcon" alt="Обмін" class="icon">
         Швидкий обмін та повернення протягом 14 днів.
       </li>
+      <li>
+      <v-rating
+          hover
+          :length="5"
+          :size="35"
+          :model-value="4"
+          color="red-lighten-3"
+          active-color="warning"
+      />
+      </li>
+
     </ul>
   </div>
+
+
 </template>
 
 <style scoped>

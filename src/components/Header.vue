@@ -11,25 +11,27 @@
     <v-toolbar density="compact">
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>AutoMix</v-toolbar-title>
-
+      <v-toolbar-title class="logo">AutoMix</v-toolbar-title>
+      <v-toolbar-title1 class="sail">Розпродажа</v-toolbar-title1>
       <v-spacer></v-spacer>
 
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
+      <v-btn icon="mdi-account"></v-btn>
+      <v-btn icon="mdi-delete-outline"></v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
     </v-toolbar>
   </v-card>
 </template>
 
 <style scoped>
-
+.sail {
+  color: red;
+  font-size: 35px;
+}
+.logo {
+  color: red;
+  font-style: italic;
+}
 </style>

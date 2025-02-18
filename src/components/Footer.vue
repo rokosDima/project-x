@@ -1,25 +1,28 @@
 <script setup>
 const icons = [
-  'mdi-facebook',
-  'mdi-twitter',
-  'mdi-linkedin',
-  'mdi-instagram',
+  { name: 'mdi-facebook', link: 'https://facebook.com' },
+  { name: 'mdi-twitter', link: 'https://twitter.com' },
+  { name: 'mdi-linkedin', link: 'https://linkedin.com' },
+  { name: 'mdi-instagram', link: 'https://instagram.com' },
 ]
 </script>
 
 <template>
-    <v-footer
+  <v-footer
         style="height: 150px; "
         class="grey-darken-4 text-center d-flex flex-column"
     >
-      <div>
-        <v-btn
+    <div>
+      <v-btn
+            target="_blank"
             v-for="icon in icons"
-            :key="icon"
-            :icon="icon"
+            :href="icon.link"
+            :key="icon.name"
+            :icon="icon.name"
             class="mx-4"
             variant="text"
         ></v-btn>
+
       </div>
 
       <div class="pt-0">

@@ -30,7 +30,8 @@ const featureList = [
     <div class="feature-block">
       <ul v-if="featureList && featureList.length">
         <li v-for="f in featureList" :key="f.label">
-          {{f.label}}
+          <span v-html="'&#10004; ' + f.label"></span>
+
         </li>
       </ul>
     </div>
@@ -67,4 +68,11 @@ const featureList = [
 .feature-block {
   padding-left: 14px;
 }
+.feature-block ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.feature-block li {
+  margin: 5px 0;}
 </style>
