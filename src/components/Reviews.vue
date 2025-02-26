@@ -4,7 +4,8 @@
 <template>
   <div class="video">
     <video>
-      <source src="../video/IMG_1360.MOV" type="video/MOV">
+      <source src="../video/IMG_1360.mp4.MOV
+" type="video/MP4">
     </video>
   </div>
   <div class="container">

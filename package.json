@@ -12,14 +12,18 @@
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/font": "^7.4.47",
     "@mdi/js": "^7.4.47",
+    "axios": "^1.8.1",
+    "pinia": "^3.0.1",
     "vee-validate": "^4.15.0",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "vue-resource": "^1.5.3",
+    "vue-router": "^4.5.0",
+    "vuetify": "^3.7.13"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "vite": "^6.0.11",
     "vite-plugin-vue-devtools": "^7.7.1",
-    "vite-plugin-vuetify": "^2.1.0",
-    "vuetify": "^3.7.12"
+    "vite-plugin-vuetify": "^2.1.0"
   }
 }

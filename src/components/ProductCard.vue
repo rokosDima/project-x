@@ -1,11 +1,34 @@
 <script setup>
-const props = defineProps(["product"]);
+//const props = defineProps(["product"]);
     const handleAddToCart = (product) => {
       console.log('Додано до кошика:', product);
 };
+import { useRouter } from 'vue-router';
+const props = defineProps({
+  product: {
+    type: Object,
+    required: true
+  }
+});
+const router = useRouter();
+const goToProductDetails = () => {
+  router.push({ name: 'ProductDetails', params: { id: props.product.id } });
+};
+import { useCartStore } from '@/store/cartStore';
+
+
+
+const cartStore = useCartStore();
+
+// Додати товар до кошика
+const addToCart = () => {
+  cartStore.addToCart(props.product);
+  console.log('Товар додано до кошика:', props.product.name);
+};
 </script>
+
 <template>
-  <div class="product-card">
+  <div class="product-card" @click="goToProductDetails">
     <div class="product-image">
       <img :src="product.image" :alt="product.name" />
     </div>
@@ -16,15 +39,18 @@ const props = defineProps(["product"]);
       <button class="add-to-cart" @click="addToCart">Додати до кошика</button>
     </div>
   </div>
+
 </template>
 <style scoped>
 .product-card {
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  width: 250px;
+  width: 500px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
 .product-card:hover {
@@ -34,7 +60,7 @@ const props = defineProps(["product"]);
 .product-image img {
   width: 100%;
   height: auto;
-  display: block;
+  display: flex;
 }
 
 .product-details {

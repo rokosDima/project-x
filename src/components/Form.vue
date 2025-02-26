@@ -1,127 +1,86 @@
 <script setup>
-import { ref } from 'vue'
-import { useField, useForm } from 'vee-validate'
+import { ref } from 'vue';
+import { useField, useForm } from 'vee-validate';
+import axios from 'axios';
 
+// Валідація форми
 const { handleSubmit, handleReset } = useForm({
   validationSchema: {
-    name (value) {
-      if (value?.length >= 2) return true
-
-      return 'Повинно бути більше 2 символа'
+    name(value) {
+      if (value?.length >= 2) return true;
+      return 'Повинно бути більше 2 символів';
     },
-    phone (value) {
-      if (/^[0-9-]{7,}$/.test(value)) return true
-
-      return 'Номер телефону має бути не менше 7 цифр.'
+    phone(value) {
+      if (/^[0-9-]{7,}$/.test(value)) return true;
+      return 'Номер телефону має бути не менше 7 цифр.';
     },
-    email (value) {
-      if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true
-
-      return 'Має бути дійсна електронна адреса.'
+    email(value) {
+      if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true;
+      return 'Має бути дійсна електронна адреса.';
     },
-
-    amount (value) {
-      if(value > 0) return true
-
-      return 'Мінімум 1'
+    amount(value) {
+      if (value > 0) return true;
+      return 'Мінімум 1';
     },
-    select (value) {
-      if (value) return true
-
-      return 'Виберіть елемент.'
+    select(value) {
+      if (value) return true;
+      return 'Виберіть елемент.';
     },
-    // checkbox (value) {
-    //   if (value === '1') return true
-    //
-    //   return 'Must be checked.'
-    // },
   },
-})
-const name = useField('name')
-const phone = useField('phone')
-const email = useField('email')
-const amount = useField('amount')
-const select = useField('select')
-const checkbox = useField('checkbox')
+});
+const name = useField('name');
+const phone = useField('phone');
+const email = useField('email');
+const amount = useField('amount');
+const select = useField('select');
+const checkbox = useField('checkbox');
 
-const paymentMethods = ref([
-  'На карту',
-  'Оплата при отриманні',
-])
+const formData = ref({
+  name: '',
+  phone: '',
+  email: '',
+  token: '7525672942:AAEfhM8-ZZ2FpYf_TlvBJJIJ-B28v_Ub4ms',
+  chatID: 536226288,
+});
 
-const submit = handleSubmit(values => {
-  alert(JSON.stringify(values, null, 2))
-})
+
+const submit = handleSubmit(async (values) => {
+ console.log( values);
+  const fullMessage = `name: ${name.value.value}\nphone: ${phone.value.value}\nemail: ${email.value.value}`;
+  const url = `https://api.telegram.org/bot${formData.value.token}/sendMessage`;
+
+  try {
+    const response = await axios.post(url, {
+      chat_id: formData.value.chatID,
+      text: fullMessage,
+    });
+    console.log('Success:', response.data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+});
 </script>
 
 <template>
   <form @submit.prevent="submit">
     <v-text-field
-        class="mt-2"
         v-model="name.value.value"
-        :counter="10"
-        :error-messages="name.errorMessage.value"
         label="Імʼя"
+        :error-messages="name.errorMessage.value"
     ></v-text-field>
 
     <v-text-field
-        class="mt-2"
         v-model="phone.value.value"
-        :counter="7"
-        :error-messages="phone.errorMessage.value"
         label="Телефон"
+        :error-messages="phone.errorMessage.value"
     ></v-text-field>
 
     <v-text-field
-        class="mt-2"
         v-model="email.value.value"
-        :error-messages="email.errorMessage.value"
         label="E-mail"
+        :error-messages="email.errorMessage.value"
     ></v-text-field>
 
-    <v-text-field
-        class="mt-2"
-        v-model="amount.value.value"
-        :error-messages="amount.errorMessage.value"
-        label="Кількість"
-    ></v-text-field>
-
-    <v-select
-        class="mt-2"
-        v-model="select.value.value"
-        :error-messages="select.errorMessage.value"
-        :items="paymentMethods"
-        label="Оплата"
-    ></v-select>
-
-    <v-checkbox
-        v-model="checkbox.value.value"
-        :error-messages="checkbox.errorMessage.value"
-        label="Option"
-        type="checkbox"
-        value="1"
-    ></v-checkbox>
-
-    <v-btn
-        class="me-4 mt-3 sub-btn"
-        type="submit"
-        variant="flat" size="x-large" block
-    >
-      Відправити
-    </v-btn>
-
-<!--    <v-btn @click="handleReset">-->
-<!--      Очистити-->
-<!--    </v-btn>-->
+    <v-btn type="submit">Відправитиfyfy</v-btn>
   </form>
 </template>
-
-<style scoped>
-
-
-@media (max-width: 959px) {
-  .sub-btn {
-    width: 100%;
-  }
-}
-</style>
